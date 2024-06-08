@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ru.yandex.travel.search";
+option go_package = "a.yandex-team.ru/junk/mikhailche/meetup/2024/java/proto;searchrpc";
+package search;
+
+service TravelSearchV1 {
+  rpc Search(SearchRequestV1) returns (SearchResponseV1){}
+  rpc DummyCall(DummyRequestV1) returns (DummyResponseV1){}
+}
+
+message SearchRequestV1 {
+  int32 reqID = 1;
+  uint32 delay = 2;
+}
+
+message SearchResponseV1 {
+  int32 reqID = 1;
+  int32 rspID = 2;
+  string threadName = 3;
+}
+
+message DummyRequestV1 { }
+
+message DummyResponseV1 { }
+
